@@ -1,0 +1,130 @@
+<div class="div-table">
+  <div class="div-table-row">
+     <div class="div-table-cell">
+          <div class="container" >
+
+                       <div class="input-field col s12" style ="padding-bottom: 5px; white-space: nowrap; overflow: hidden; font-size:12px">
+                         <div style=""><a href="javascript:alert('To be implemented')"> Site:Hampton</a></div>
+                         <div style=";"><a href="javascript:alert('To be implemented')"> Search  </a></div>
+                         <div style=""><a href="javascript:alert('To be implemented')"> Filter </a></div>
+                       </div>
+
+                       <div class="input-field col s12">
+                         <div style="width:25%"><label for="search">Address:</label> </div>
+                         <div style="width:75%"><input id="search" size="30" type="text" class="validate filter-input" #term (keyup)="search(term.value)">  </div>
+                       </div>
+                        
+                       <div class="spacer"> </div>
+
+                       <div class="suggestions" *ngIf="items && !clicked">
+                         <ul>
+                           <li *ngFor=" let item of items | async" (click)="onSelect(item)"> <div class="pointer">{{item.formattedAddress}}</div></li>
+                         </ul>
+                       </div>
+
+                       <div class="input-field col s12">
+                         <div style="width:25%"><label for="search">Radius:</label></div>
+                         <div style="width:75%">
+                           <input style="width:30%" id="radius" type="text" class="validate filter-input">
+                           <select style="width:30%" id="unit"  class="validate filter-input">
+                             <option value="1">feet</option>
+                             <option value="2">meters</option>
+                           </select>
+
+                         </div>
+                       </div>
+
+                      <div class="input-field col s12" style="padding-top:10px;width:20px">
+                        <label style="display: inline-block;" for="chk">Clustering:</label> <input id="chk" type="checkbox" value="chck" class="" style="">
+                      </div>
+
+          </div>
+     </div>
+    <div class="div-table-cell">
+      <div class="opt-table" style="font-weight:normal;font-size:11px;">
+        <div class="opt-table-row">
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="1"/> Taps - as built(20/20)
+          </div>
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="2"/> Fiber Spans
+          </div>
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="3"/> Prospects(60/60)
+          </div>
+        </div>
+        <div class="opt-table-row">
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="4"/> Taps - engineering(0/0)
+          </div>
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="5"/> HFC Spans
+          </div>
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="6"/> Commercial(0/0)
+          </div>
+        </div>
+        <div class="opt-table-row">
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="7"/> Nodes(0/0)
+          </div>
+          <div class="opt-table-cell">
+
+          </div>
+          <div class="opt-table-cell">
+            <input type="checkbox" name="filter" value="8"/> Residential(0/0)
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="div-table-row">
+    <div class="spacer"> </div>
+  </div>
+  <div class="div-table-row">
+    <div class="spacer"> </div>
+  </div>
+
+  <div class="div-table-row">
+    <div class="div-table-cell">
+        <div *ngIf="selectedItem">
+            <sebm-google-map [disableDoubleClickZoom]="true" [zoom]="10" [mapTypeControl]="true" [streetViewControl]="true" [scrollwheel]= "true" [latitude]="selectedItem.location.lat" [longitude]="selectedItem.location.lng">
+              <sebm-google-map-marker [latitude]="selectedItem.location.lat" [longitude]="selectedItem.location.lng"></sebm-google-map-marker>
+            </sebm-google-map>
+			<div style="padding-top:15px">
+			<button-app-component></button-app-component>
+			</div>
+         </div>
+         <div *ngIf="!selectedItem">
+           <div> ... </div>
+         </div>
+    </div>
+    <div class="div-table-cell">
+
+    <div *ngIf="selectedItem">
+      <tabs>
+        <tab tabTitle="TAPS (AS BUILT)"><data-table-demo-1></data-table-demo-1></tab>
+        <tab tabTitle="TAPS (Engineering)">TAPS (Engineering) Data</tab>
+        <tab tabTitle="NOTES">notes</tab>
+        <tab tabTitle="STREET VIEW">street view</tab>
+        <tab tabTitle="NODES">Nodes Data</tab>
+      </tabs>
+    </div>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+

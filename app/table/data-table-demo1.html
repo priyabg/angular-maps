@@ -1,0 +1,35 @@
+
+    <data-table id="persons-grid"
+        headerTitle="Nearest 20 Taps " [pagination]="false" [autoReload]="true" [selectColumn]="false"
+                 [showReloading]="true"
+        [items]="items"
+        [itemCount]="itemCount"
+        (reload)="reloadItems($event)"
+
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        [rowTooltip]="rowTooltip"
+        >
+        <data-table-column
+            [property]="'name'"
+            [header]="'Description'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'lat'"
+            [header]="'Latitude'"
+            [sortable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'lng'"
+            [header]="'Longitude'"
+            [visible]="true">
+        </data-table-column>
+      <data-table-column
+        [property]="'distance'"
+        [header]="'Distance'"
+        [visible]="true">
+      </data-table-column>
+    </data-table>
+

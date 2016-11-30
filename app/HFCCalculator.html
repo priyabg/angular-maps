@@ -1,0 +1,109 @@
+
+  <button type="button" (click)="modal.show()">Show Next Line</button>
+  <button type="button" (click)="modal.show()">Save To Notes</button>
+  <button type="button" (click)="modal.show()">HFC Calculator</button>
+  <button type="button" (click)="modal.show()">Print View</button>
+  <app-modal>
+    <div class="app-modal-header">
+      <h3>HFC Calculator</h3>
+    </div>
+    <div class="app-modal-body">
+          <table cellspacing = "11" text-align="left" border = "0">
+               <tr>
+                  <td>Select District:</td>
+                  <td>		
+					<select ng-model="location">
+						<option value="">Select
+						<option value="Downtown">Downtown
+						<option value="Uptown">Uptown
+						<option value="CityOuter">City Outer
+					</select>
+				</td>
+               </tr>			   
+               <tr>
+                  <td>Number of Feet:</td>
+                  <td><input name = "nooffeet" type = "text" ng-model = "nooffeet"></td>
+               </tr>
+               <tr>
+                  <td>Cost per Foot:</td>
+                  <td>
+					<select ng-model="cost">
+						<option value="">Select
+						<option value="Fiber">Fiber($4.2 per ft)
+						<option value="Coaxial">Coaxial ($3 per ft)
+					</select>
+				</td>
+               </tr>
+               <tr>
+                  <td>Electronics:</td>
+                  <td><input name = "electronics" type = "text" ng-model = "electronics"></td>
+               </tr>
+                <tr>
+                  <td>Term:</td>
+                  <td>
+					<select ng-model="term">
+						<option value="">Select
+						<option value="Year">12 Months
+						<option value="Month">6 Months
+					</select>
+				</td>
+               </tr>  
+			   <tr>
+				<td colspan="2">
+			<tabs>
+  				<tab tabTitle="SOLVE FOR MRC">
+					<tr>
+						<td>IPR:</td>
+						<td><input name = "ipr" type = "text" ng-model = "ipr"></td>
+					</tr>
+					<tr>
+						<td>NRC:</td>
+						<td><input name = "nrc" type = "text" ng-model = "nrc"></td>
+					</tr>
+					<tr>
+						<td>MRC:</td>
+						<td>$89.93</td>
+					</tr>
+					<div class="app-modal-footer">
+						<button type="button" class="btn btn-primary" >Solve</button>			   
+					</div>
+				</tab>
+  				<tab tabTitle="SOLVE FOR NRC">
+					<tr>
+						<td>NRC:</td>
+						<td><input name = "nrc" type = "text" ng-model = "nrc"></td>
+					</tr>
+					<div class="app-modal-footer">
+						<button type="button" class="btn btn-primary" >Solve</button>			   
+					</div>			   
+				</tab>
+				<tab tabTitle="SOLVE FOR IRR">
+					<tr>
+						<td>IPR:</td>
+						<td><input name = "ipr" type = "text" ng-model = "ipr"></td>
+					</tr>
+					<div class="app-modal-footer">
+						<button type="button" class="btn btn-primary" >Solve</button>			   
+					</div>			   
+				</tab>
+			</tabs> 
+			   </td>
+			   </tr>
+               <!--
+               <tr>
+                  <td>
+                     <button ng-click = "reset()">Save To Notes</button>
+                  </td>
+                  <td>
+                     <button ng-click="submit()">Close</button>
+                  </td>
+               </tr>
+				-->
+			<div class="app-modal-footer">
+				<button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+				<button type="button" class="btn btn-primary" (click)="modal.hide()">Save changes</button>
+			</div>				
+            </table>
+    </div>
+
+  </app-modal>
